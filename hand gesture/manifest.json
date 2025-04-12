@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Hand Gesture Control",
+  "version": "1.0",
+  "description": "Control videos using hand gestures.",
+  "permissions": ["activeTab", "scripting","tabs"],
+  "host_permissions": ["http://127.0.0.1:5000/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
